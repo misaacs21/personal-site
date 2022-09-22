@@ -1,0 +1,15 @@
+---
+export interface Props {
+	linkPath: string;
+	label: string;
+}
+
+const { linkPath, label } = Astro.props;
+const { pathname: currentPath } = Astro.url;
+---
+
+<li>
+	<a href={ linkPath } style={ currentPath === linkPath ? "text-decoration-line: underline" : ""}>
+		{ label }
+	</a>
+</li>
