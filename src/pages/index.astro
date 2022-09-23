@@ -1,9 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
 ---
 
-<Layout title="Michaela Isaacs">
-	<main>
-		<h1>Hello World</h1>
-	</main>
+<Layout title="Michaela Isaacs: Home">
+	<div>
+		<h1>Hi!<br />I'm Michaela.</h1>
+		<div>
+			<div>Frontend Developer + Accessibility Enthusiast</div>
+			<div>Socials</div>
+		</div>
+	</div>
+	<div>
+		<Card>
+			<h2 slot="header">I make...</h2>
+			Responsive, cross-browser, and accessible web applications that put the user first.
+		</Card>
+		<Card>
+			<h2 slot="header">I use...</h2>
+			Vue and React as well as HTML, Javascript, and CSS--and I'm always learning more.
+		</Card>
+		<Card>
+			<h2 slot="header">I am...</h2>
+			A young professional with a passion for board games, horror movies, hiking, and her cat. 🐈
+		</Card>
+	</div>
+	<section>
+		<h2>Let's get in touch!</h2>
+		<form>
+			<label>
+				Email
+				<input type="email" />
+			</label>
+			<label>
+				Message
+				<textarea />
+			</label>
+			<button type="submit">Send</button>
+		</form>
+	</section>
 </Layout>

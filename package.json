@@ -11,6 +11,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.2.8"
+    "astro": "^1.2.8",
+    "modern-normalize": "^1.1.0"
   }
 }
