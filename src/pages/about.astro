@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Michaela Isaacs: About">
+    <div class="banner spacer-margin-xl" />
+    <div class="flex-apart align-top">
+        <div class="split-primary">
+            <section class="spacer-margin-large">
+                <h1 class="text-subtitle text-color-emphasis bold inline-block margin-bump-right">A bit about me.</h1>
+                <p class="inline">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </section>
+            <section class="spacer-margin-large">
+                <h2 class="text-header underline spacer-padding-xs">Professional</h2>
+                <p class="spacer-padding-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </section>
+            <section>
+                <h2 class="text-header underline spacer-padding-xs">Personal</h2>
+                <p class="spacer-padding-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </section>
+        </div>
+        <aside>
+            <Card className="padding-large">
+                <h2 class="underline-dull spacer-margin-small">Frameworks</h2>
+                <ul class="spacer-margin-large bulleted">
+                    <li>Vue</li>
+                    <li>React</li>
+                    <li>Ruby on Rails</li>
+                </ul>
+                <h2 class="underline-dull spacer-margin-small">Languages</h2>
+                <ul class="spacer-margin-large bulleted">
+                    <li>HTML</li>
+                    <li>Javascript</li>
+                    <li>CSS</li>
+                </ul>
+                <h2 class="underline-dull spacer-margin-small">Lorem</h2>
+                <ul class="bulleted">
+                    <li>Ipsum</li>
+                    <li>Lorem</li>
+                    <li>Ipsum</li>
+                </ul>
+            </Card>
+        </aside>
+    </div>
+</Layout>
+
+<style>
+    .split-primary {
+        max-width: 720px;
+        flex-shrink: 1;
+        width: 100%;
+    }
+    .margin-bump-right {
+        margin-right: .875rem;
+    }
+</style>

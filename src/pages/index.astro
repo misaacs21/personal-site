@@ -4,28 +4,28 @@ import Card from '../components/Card.astro';
 ---
 
 <Layout title="Michaela Isaacs: Home">
-	<div>
-		<h1>Hi!<br />I'm Michaela.</h1>
-		<div>
-			<div>Frontend Developer + Accessibility Enthusiast</div>
+	<div class="spacer-padding underline">
+		<h1 class="text-title text-color-emphasis">Hi!<br />I'm Michaela.</h1>
+		<div class="flex-apart align-bottom">
+			<div class="text-subtitle">Frontend Developer +<br />Accessibility Enthusiast</div>
 			<div>Socials</div>
 		</div>
 	</div>
-	<div>
-		<Card>
-			<h2 slot="header">I make...</h2>
+	<div class="flex-apart align-top spacer-padding">
+		<Card className="card-square">
+			<h2 slot="header" class="text-header spacer-margin">I make...</h2>
 			Responsive, cross-browser, and accessible web applications that put the user first.
 		</Card>
-		<Card>
-			<h2 slot="header">I use...</h2>
+		<Card className="card-square">
+			<h2 slot="header" class="text-header spacer-margin">I use...</h2>
 			Vue and React as well as HTML, Javascript, and CSS--and I'm always learning more.
 		</Card>
-		<Card>
-			<h2 slot="header">I am...</h2>
+		<Card className="card-square">
+			<h2 slot="header" class="text-header spacer-margin">I am...</h2>
 			A young professional with a passion for board games, horror movies, hiking, and her cat. 🐈
 		</Card>
 	</div>
-	<section>
+	<section style="display:none;">
 		<h2>Let's get in touch!</h2>
 		<form>
 			<label>

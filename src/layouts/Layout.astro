@@ -1,5 +1,7 @@
 ---
 import NavLink from '../components/NavLink.astro'
+import '../styles/reset.css'
+
 export interface Props {
 	title: string;
 }
@@ -15,20 +17,23 @@ const { title } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<link rel="preload" href="https://fonts.googleapis.com">
+		<link rel="preload" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400" rel="stylesheet">
 		<link rel="stylesheet" href="/node_modules/modern-normalize/modern-normalize.css" />
 	</head>
 	<body>
-		<header style="display:flex;">
+		<header style="display:flex;padding:2rem 3.5rem;align-items:center;">
 			<div style="flex-grow:1;">
 				<div style="width:4rem;height:4rem;background-color:gray;"/>
 			</div>
-			<ul style="display:flex;column-gap:1.5rem;">
+			<ul class="text-header" style="display:flex;column-gap:1.5rem;">
 				<NavLink linkPath="/" label="Home" />
 				<NavLink linkPath="/about" label="About" />
 				<NavLink linkPath="/blog" label="Blog" />
 			</ul>
 		</header>
-		<main>
+		<main class="container">
 			<slot />
 		</main>
 	</body>
@@ -36,22 +41,118 @@ const { title } = Astro.props
 
 <style is:global>
 	:root {
-		--font-size-base: 1.125rem;
-		--line-height-base: 1.75rem;
+		--color-emphasis: #E11D48;
+		--color-emphasis-light: #F43F5E;
+		--color-base: #27272A;
+		--bg: #FAFAFA;
 	}
-
-	/* Strip certain styles */
-	h1, h2, h3, h4, h5 {
-		font-size: inherit;
-		line-height: inherit;
-		font-weight: normal;
+	body {
+		font-family: 'Montserrat', sans-serif;
+		background-color: var(--bg);
+		color: var(--color-base);
+		font-size: 1.125rem;
+		line-height: 1.75rem;
 	}
-
-	ul {
-		list-style-type: none;
+	.container {
+		padding: 2rem 14rem 4rem;
+		width: 100%;
+		height: 100%;
+		position: relative;
 	}
-
-	a {
-		text-decoration-line: none;
+	.flex-apart {
+		display: flex;
+		justify-content: space-between;
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
+	.align-bottom {
+		align-items: flex-end;
+	}
+	.align-top {
+		align-items: flex-start;
+	}
+	.text-header {
+		font-size: 1.5rem;
+		line-height: 2rem;
+		font-weight: 600;
+	}
+	.text-subtitle {
+		font-size: 1.875rem;
+		line-height: 2.25rem;
+	}
+	.text-title {
+		font-size: 3rem;
+		font-weight: bold;
+		line-height: 3.5rem;
+		margin-bottom: .875rem;
+	}
+	.text-color-emphasis {
+		color: var(--color-emphasis);
+	}
+	.text-color-emphasis-light {
+		color: var(--color-emphasis-light);
+	}
+	.bold {
+		font-weight: bold;
+	}
+	.underline {
+		border-bottom: 2px solid var(--color-emphasis-light);
+	}
+	.underline-dull {
+		border-bottom: 2px solid #A1A1AA;
+	}
+	.spacer-padding {
+		padding: 2.5rem 0px 2.5rem 0px;
+	}
+	.card {
+		padding: 1.5rem 1.25rem;
+		box-shadow: inset 0px 2px 2px 0px rgb(0,0,0,.25);
+		background-color: #F4F4F5;
+		border-radius: 8px;
+	}
+	.card-square {
+		width: 15rem;
+		height: 12rem;
+		flex-grow: 0;
+		flex-shrink: 0;
+	}
+	.rounded {
+		border-radius: 8px;
+	}
+	.spacer-margin {
+		margin-bottom: .875rem;
+	}
+	.spacer-margin-large {
+		margin-bottom: 2rem;
+	}
+	.spacer-margin-xl {
+		margin-bottom: 3rem;
+	}
+	.banner {
+		background-color: #A1A1AA;
+		width: 100%;
+		height: 9rem;
+	}
+	.spacer-padding-small {
+		padding: .875rem 0px .875rem 0px;
+	}
+	.spacer-padding-xs {
+		padding: .5rem 0px .5rem 0px;
+	}
+	.padding-large {
+		padding: 2rem;
+	}
+	.bulleted {
+		list-style-type: disc;
+		list-style-position: inside;
+	}
+	.spacer-margin-small {
+		margin-bottom: .5rem;
+	}
+	.inline-block {
+		display: inline-block;
+	}
+	.inline {
+		display: inline;
 	}
 </style>

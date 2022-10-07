@@ -9,7 +9,7 @@ const { pathname: currentPath } = Astro.url;
 ---
 
 <li>
-	<a href={ linkPath } style={ currentPath === linkPath ? "text-decoration-line: underline" : ""}>
+	<a href={ linkPath } class={ currentPath === linkPath ? "underline" : ""}>
 		{ label }
 	</a>
 </li>
