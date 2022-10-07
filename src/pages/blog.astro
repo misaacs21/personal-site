@@ -1,20 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Tag from '../components/Tag.astro';
+import Rss from '../components/Rss.astro';
 import BlogPost from '../components/BlogPost.astro';
 ---
 
 <Layout title="Michaela Isaacs: Blog">
     <h1 class="spacer-padding-small underline text-title" style="margin-bottom:4.25rem;">Lorem Ipsum</h1>
-    <div class="flex-apart align-top">
-        <section class="split-primary">
+    <div class="media-blog flex align-top">
+        <section>
             <BlogPost />
         </section>
         <aside>
             <h2 class="text-header">Topics</h2>
-            <div></div>
+            <ul style="margin-bottom: 3.5rem;">
+                <Tag selected={ false }>CSS</Tag>
+                <Tag selected={ true }>JS</Tag>
+            </ul>
             <h2 class="text-header">Subscribe</h2>
-            <div></div>
+            <button aria-label="RSS Feed"><Rss /></button>
         </aside>
     </div>
 </Layout>
+
+<style>
+    ul {
+        list-style-type: none;
+        display: flex;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+    }
+    .text-header {
+        margin-bottom: .625rem;
+    }
+    button {
+        outline: none;
+    }
+    aside {
+        min-width: 13rem;
+    }
+    .media-blog {
+        flex-wrap: nowrap !important;
+        gap: 5rem !important;
+    }
+    @media (max-width: 1280px) {
+        .media-blog {
+            flex-wrap: wrap !important;
+        }
+    }
+</style>

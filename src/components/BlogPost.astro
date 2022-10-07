@@ -1,1 +1,64 @@
-<div>Post</div>
+---
+import Tag from './Tag.astro';
+
+export interface Props {
+	post: any;
+}
+
+const { post = {
+    title: 'Lorem Ipsum',
+    date: '9.12.22',
+    tags: ['JS'],
+    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea...'
+} } = Astro.props;
+---
+
+<article class="flex">
+    <div class="image" style="flex-shrink: 0;" />
+    <div>
+        <div class="post-header">
+            <div>
+                <h2 class="text-header">{ post.title }</h2>
+                <div style="font-weight: light;">{ post.date }</div>
+            </div>
+            <div>
+                {post.tags.map((tag) =>
+                    <Tag>{ tag }</Tag>
+                )}
+            </div>
+        </div>
+        <p>{ post.excerpt }</p>
+    </div>
+</article>
+
+<style>
+    .post-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    article {
+        flex-wrap: nowrap !important;
+    }
+    @media (max-width: 768px) {
+        article {
+            flex-wrap: wrap !important;
+            column-gap: .5rem !important;
+        }
+        .image {
+            width: 100% !important;
+        }
+    }
+    .post-header:first-of-type(div) {
+        flex-grow: 1;
+    }
+    .image {
+        width: 12rem;
+        height: 12rem;
+        background-color: gray;
+    }
+    h2 {
+        font-weight: 600;
+    }
+</style>

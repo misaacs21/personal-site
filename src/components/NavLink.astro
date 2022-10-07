@@ -9,7 +9,16 @@ const { pathname: currentPath } = Astro.url;
 ---
 
 <li>
-	<a href={ linkPath } class={ currentPath === linkPath ? "underline" : ""}>
+	<a href={ linkPath } aria-current={ currentPath === linkPath ? 'true' : undefined} class={ currentPath === linkPath ? "underline" : ""}>
 		{ label }
 	</a>
 </li>
+
+<style>
+	a {
+		font-weight: normal;
+	}
+	a[aria-current="true"] {
+		font-weight: 600;
+	}
+</style>

@@ -13,5 +13,10 @@
   "dependencies": {
     "astro": "^1.2.8",
     "modern-normalize": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
   }
 }

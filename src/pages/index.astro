@@ -6,12 +6,12 @@ import Card from '../components/Card.astro';
 <Layout title="Michaela Isaacs: Home">
 	<div class="spacer-padding underline">
 		<h1 class="text-title text-color-emphasis">Hi!<br />I'm Michaela.</h1>
-		<div class="flex-apart align-bottom">
+		<div class="flex justify-apart align-bottom">
 			<div class="text-subtitle">Frontend Developer +<br />Accessibility Enthusiast</div>
 			<div>Socials</div>
 		</div>
 	</div>
-	<div class="flex-apart align-top spacer-padding">
+	<div class="flex justify-apart align-top spacer-padding">
 		<Card className="card-square">
 			<h2 slot="header" class="text-header spacer-margin">I make...</h2>
 			Responsive, cross-browser, and accessible web applications that put the user first.
@@ -40,3 +40,15 @@ import Card from '../components/Card.astro';
 		</form>
 	</section>
 </Layout>
+
+<style>
+	@media (max-width: 850px) {
+		.flex {
+			display: grid !important;
+			grid-template-columns: 1fr !important;
+		}
+		.card-square {
+			margin: auto;
+		}
+	}
+</style>

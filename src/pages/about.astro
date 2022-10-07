@@ -5,8 +5,8 @@ import Card from '../components/Card.astro';
 
 <Layout title="Michaela Isaacs: About">
     <div class="banner spacer-margin-xl" />
-    <div class="flex-apart align-top">
-        <div class="split-primary">
+    <div class="flex about-media align-top">
+        <div>
             <section class="spacer-margin-large">
                 <h1 class="text-subtitle text-color-emphasis bold inline-block margin-bump-right">A bit about me.</h1>
                 <p class="inline">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -48,5 +48,19 @@ import Card from '../components/Card.astro';
 <style>
     .margin-bump-right {
         margin-right: .875rem;
+    }
+    aside {
+        min-width: 13rem;
+    }
+    .about-media {
+        flex-wrap: nowrap !important;
+    }
+    @media (max-width: 768px ) {
+        .about-media {
+            flex-wrap: wrap !important;
+        }
+        aside {
+            width: 100%;
+        }
     }
 </style>

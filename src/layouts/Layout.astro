@@ -23,18 +23,18 @@ const { title } = Astro.props
 		<link rel="stylesheet" href="/node_modules/modern-normalize/modern-normalize.css" />
 	</head>
 	<body>
-		<header style="display:flex;padding:2rem 3.5rem;align-items:center;">
-			<div style="flex-grow:1;">
-				<div style="width:4rem;height:4rem;background-color:gray;"/>
-			</div>
-			<ul class="text-header" style="display:flex;column-gap:1.5rem;">
+		<header class="header">
+			<div class="icon" />
+			<ul class="text-header flex flex-grow" style="flex-wrap: nowrap">
 				<NavLink linkPath="/" label="Home" />
 				<NavLink linkPath="/about" label="About" />
 				<NavLink linkPath="/blog" label="Blog" />
 			</ul>
 		</header>
 		<main class="container">
-			<slot />
+			<div>
+				<slot />
+			</div>
 		</main>
 	</body>
 </html>
@@ -45,6 +45,12 @@ const { title } = Astro.props
 		--color-emphasis-light: #F43F5E;
 		--color-base: #27272A;
 		--bg: #FAFAFA;
+		--breakpoint-xs: 640px;
+		--random-breakpoint: 850px;
+		--breakpoint-md: 768px;
+		--breakpoint-lg: 1024px;
+		--breakpoint-xl: 1280px;
+		--breakpoint-2xl: 1536px;
 	}
 	body {
 		font-family: 'Montserrat', sans-serif;
@@ -53,17 +59,68 @@ const { title } = Astro.props
 		font-size: 1.125rem;
 		line-height: 1.75rem;
 	}
+	.header {
+		display: flex;
+		padding: 2rem 2rem;
+		align-items: center;
+		gap: 2rem;
+	}
+	.header > ul {
+		justify-content: end;
+	}
+	@media (max-width: 640px) {
+		.header {
+			display: grid;
+			grid-template-columns: 1fr;
+		}
+		.header > ul {
+			justify-content: center;
+		}
+	}
 	.container {
-		padding: 2rem 14rem 4rem;
-		width: 100%;
+		padding: 2rem 2rem 4rem;
+		width: screen;
 		height: 100%;
 		position: relative;
-	}
-	.flex-apart {
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	.container > div {
+		width: 100%;
+		max-width: var(--breakpoint-lg);
+	}
+	@media (min-width: 1024px) {
+		.header {
+			padding: 2rem 3.5rem;
+		}
+		.container {
+			padding: 2rem 7rem 4rem;
+		}
+	}
+	.icon {
+		width: 4rem;
+		height: 4rem;
+		background-color: gray;
+		margin: auto;
+	}
+	.flex {
+		display: flex;
 		gap: 2rem;
 		flex-wrap: wrap;
+	}
+	.flex-grow {
+		flex-grow: 1;
+	}
+	.justify-apart {
+		justify-content: space-between;
+	}
+	.justify-end {
+		justify-content: flex-end;
+	}
+	.align-middle {
+		align-items: center;
 	}
 	.align-bottom {
 		align-items: flex-end;
@@ -155,9 +212,4 @@ const { title } = Astro.props
 	.inline {
 		display: inline;
 	}
-	.split-primary {
-        max-width: 720px;
-        flex-shrink: 1;
-        width: 100%;
-    }
 </style>

@@ -64,6 +64,7 @@ button,
 [type='submit'] {
   background-color: transparent;
   background-image: none;
+  border: none;
 }
 
 button,
