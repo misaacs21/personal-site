@@ -1,7 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import BlogPost from '../components/BlogPost.astro';
 ---
 
 <Layout title="Michaela Isaacs: Blog">
+    <h1 class="spacer-padding-small underline text-title" style="margin-bottom:4.25rem;">Lorem Ipsum</h1>
+    <div class="flex-apart align-top">
+        <section class="split-primary">
+            <BlogPost />
+        </section>
+        <aside>
+            <h2 class="text-header">Topics</h2>
+            <div></div>
+            <h2 class="text-header">Subscribe</h2>
+            <div></div>
+        </aside>
+    </div>
 </Layout>
