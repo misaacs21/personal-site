@@ -6,10 +6,12 @@ export interface Props {
 
 const { linkPath, label } = Astro.props;
 const { pathname: currentPath } = Astro.url;
+const isCurrentLocation = (currentPath.startsWith(linkPath) && (linkPath !== '/' )) || currentPath === linkPath
+
 ---
 
 <li>
-	<a href={ linkPath } aria-current={ currentPath === linkPath ? 'true' : undefined} class={ currentPath === linkPath ? "underline" : ""}>
+	<a href={ linkPath } aria-current={ isCurrentLocation ? 'true' : undefined} class={ isCurrentLocation ? "underline" : ""}>
 		{ label }
 	</a>
 </li>
