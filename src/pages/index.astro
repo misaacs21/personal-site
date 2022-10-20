@@ -7,7 +7,7 @@ import Codepen from '../components/Codepen.astro';
 ---
 
 <Layout title="Michaela Isaacs: Home">
-	<div class="spacer-padding underline">
+	<div class="spacer-padding-new underline">
 		<h1 class="text-title text-color-emphasis">Hi!<br />I'm Michaela.</h1>
 		<div class="flex justify-apart align-bottom">
 			<div class="text-subtitle">Frontend Developer +<br />Accessibility Enthusiast</div>
@@ -32,8 +32,8 @@ import Codepen from '../components/Codepen.astro';
 			A young professional with a passion for board games, horror movies, hiking, and her cat. 🐈
 		</Card>
 	</div>
-	<section style="display:none;">
-		<h2>Let's get in touch!</h2>
+	<section>
+		<h2 class="text-subtitle">Let's get in touch!</h2>
 		<form>
 			<label>
 				Email
@@ -43,7 +43,7 @@ import Codepen from '../components/Codepen.astro';
 				Message
 				<textarea />
 			</label>
-			<button type="submit">Send</button>
+			<button class="button bold" type="submit">Send</button>
 		</form>
 	</section>
 </Layout>
@@ -61,5 +61,56 @@ import Codepen from '../components/Codepen.astro';
 		.card-square {
 			margin: auto;
 		}
+	}
+	.spacer-padding-new {
+		padding-bottom: 2.5rem;
+	}
+	.contact-me {
+		display: flex;
+		justify-content: center;
+		position: absolute;
+		width: 100%;
+		height: 105vh;
+		color: var(--color-emphasis-light);
+		overflow-x: hidden;
+		z-index: 5;
+		pointer-events: none;
+	}
+	section > h2 {
+		font-weight: 600;
+		margin-bottom: 3rem;
+	}
+	section > form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.75rem;
+	}
+	section input {
+		min-height: 3.5rem;
+		padding: .5rem .75rem;
+	}
+	section input:user-invalid {
+		border: 3px solid var(--color-emphasis);
+	}
+	section textarea {
+		min-height: 15rem;
+		resize: none;
+		padding: 1.5rem 1rem;
+	}
+	section input, section textarea {
+		display: block;
+		min-width: 50%;
+		border-radius: 8px;
+		box-shadow: inset 0px 2px 2px 0px rgb(0,0,0,.25);
+		border: none;
+		margin-top: .375rem;
+	}
+	section > form > .button {
+		width: fit-content;
+		background-color: var(--color-emphasis-light);
+		color: white;
+		padding: .5rem 1.7rem;
+		box-shadow: 0px 2px 2px 0px rgb(0,0,0,.25);
+		border-radius: 8px;
 	}
 </style>
