@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import LinkedIn from '../components/LinkedIn.astro';
+import Github from '../components/Github.astro';
+import Codepen from '../components/Codepen.astro';
 ---
 
 <Layout title="Michaela Isaacs: Home">
@@ -8,7 +11,11 @@ import Card from '../components/Card.astro';
 		<h1 class="text-title text-color-emphasis">Hi!<br />I'm Michaela.</h1>
 		<div class="flex justify-apart align-bottom">
 			<div class="text-subtitle">Frontend Developer +<br />Accessibility Enthusiast</div>
-			<div>Socials</div>
+			<div class="socials">
+				<a href="https://www.linkedin.com/in/michaela-isaacs/"><LinkedIn /><span class="sr-only">LinkedIn</span></a>
+				<a href="https://github.com/misaacs21"><Github /><span class="sr-only">Github</span></a>
+				<a href="https://codepen.io/misaacs21"><Codepen /><span class="sr-only">Codepen</span></a>
+			</div>
 		</div>
 	</div>
 	<div class="flex justify-apart align-top spacer-padding">
@@ -42,6 +49,10 @@ import Card from '../components/Card.astro';
 </Layout>
 
 <style>
+	.socials {
+		display: flex;
+		column-gap: .875rem;
+	}
 	@media (max-width: 850px) {
 		.flex {
 			display: grid !important;
