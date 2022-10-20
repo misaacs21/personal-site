@@ -3,19 +3,30 @@ import Layout from '../layouts/Layout.astro';
 import Tag from '../components/Tag.astro';
 import Rss from '../components/Rss.astro';
 import BlogPost from '../components/BlogPost.astro';
+
+const posts = await Astro.glob('./blog/*.md');
+const tags = {}
+posts.forEach((post) => {
+    post.frontmatter.tags.forEach((tag) => {
+        tags[tag] = null
+    })
+})
 ---
 
 <Layout title="Michaela Isaacs: Blog">
     <h1 class="spacer-padding-small underline text-title" style="margin-bottom:4.25rem;">Lorem Ipsum</h1>
     <div class="media-blog flex align-top">
         <section>
-            <BlogPost />
+            { posts.map(post => (
+                <BlogPost post={{ ...post.frontmatter, url: post.url }} />
+            )) }
         </section>
         <aside>
             <h2 class="text-header">Topics</h2>
             <ul style="margin-bottom: 3.5rem;">
-                <Tag selected={ false }>CSS</Tag>
-                <Tag selected={ true }>JS</Tag>
+                { Object.keys(tags).map((tag) => (
+                    <Tag selected={ false }>{ tag }</Tag>
+                ))}
             </ul>
             <h2 class="text-header">Subscribe</h2>
             <button aria-label="RSS Feed"><Rss /></button>

@@ -5,23 +5,20 @@ export interface Props {
 	post: any;
 }
 
-const { post = {
-    title: 'Lorem Ipsum',
-    date: '9.12.22',
-    tags: ['JS'],
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea...'
-} } = Astro.props;
+const { post } = Astro.props;
 ---
 
 <article class="flex">
-    <div class="image" style="flex-shrink: 0;" />
+    <div class="image" style="flex-shrink: 0;">
+        <img src={`/assets/${post.image}`} alt={ post.altText } />
+    </div>
     <div>
         <div class="post-header">
             <div>
-                <h2 class="text-header">{ post.title }</h2>
+                <a href={ post.url }><h2 class="text-header">{ post.title }</h2></a>
                 <div style="font-weight: light;">{ post.date }</div>
             </div>
-            <div>
+            <div class="tags">
                 {post.tags.map((tag) =>
                     <Tag>{ tag }</Tag>
                 )}
@@ -37,6 +34,7 @@ const { post = {
         justify-content: space-between;
         gap: 1.25rem;
         margin-bottom: 1rem;
+        flex-wrap: wrap;
     }
     article {
         flex-wrap: nowrap !important;
@@ -53,10 +51,28 @@ const { post = {
     .post-header:first-of-type(div) {
         flex-grow: 1;
     }
+    .tags {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+    }
+    .tags > * {
+        height: fit-content;
+    }
     .image {
+        position: relative;
         width: 12rem;
         height: 12rem;
-        background-color: gray;
+        box-shadow: inset 0px 2px 2px 0px rgb(0,0,0,.25);
+        border-radius: 8px;
+        padding: 1rem;
+        background-color: #F4F4F5;
+    }
+    .image > img {
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     h2 {
         font-weight: 600;
